@@ -9,8 +9,11 @@
 Torrench is a command-line program to search and download torrents from torrent-hosting sites. It's compatible under **Linux and Windows** operating systems. 
 
 * MacOS Users: I don't own a Mac hardware, so unable to test on it. But, I think it should work fine, considering the code is written keeping cross-platform in mind. Try and report back maybe? Thanks.
+	* _Tested on **Yosemite** (by me as well as a user). Works great._
+	* _Tested on **Sierra (10.12.6)**. Works great (Reported by a user)._
 
 Torrents can be fetched from following websites:
+
 1. linuxtracker.org - Download linux distros ISO torrents.
 2. DistroWatch - Another linux distro ISOs repository.
 3. The Pirate Bay (TPB)**\***
@@ -20,18 +23,15 @@ Torrents can be fetched from following websites:
 ![both](https://raw.githubusercontent.com/kryptxy/torrench/master/images/screenshots/mix.gif)
 _(Click to expand)_
 
-### \* Using ThepirateBay(TPB) / KickassTorrents(KAT)
+### \* Using The Pirate Bay(TPB) / KickassTorrents(KAT)
 By default, searching thepiratebay(TPB)/kickasstorrents(KAT) from torrench is disabled. The user should configure and enable it to use. I have provided configuration steps, but before moving to configuration, please note the following:
 
-* Using TPB in many countries is illegal. Using TPB can get you into un-intended troubles (e.g notices/block from ISP). Read [Legal issues](https://en.wikipedia.org/wiki/The_Pirate_Bay#Legal_issues)
-* Neither I, nor the tool shall be held responsible for any action taken against you for using TPB from torrench.
-* Illegal searches [example](https://github.com/kryptxy/torrench#searches-considered-illegal)
-* This should be enough. Please see [Configuration steps](https://github.com/kryptxy/torrench#configuration-instructions) to enable TPB.
+* Using TPB/KAT in many countries is illegal. Using TPB/KAT can get you into un-intended troubles (e.g notices/block from ISP). Read [Legal issues](https://en.wikipedia.org/wiki/The_Pirate_Bay#Legal_issues)
+* Neither I, nor the tool shall be held responsible for any action taken against you for using TPB/KAT from torrench.
+* Illegal searches [examples](https://github.com/kryptxy/torrench#searches-considered-illegal)
+* This should be enough. Please see [Configuration steps](https://github.com/kryptxy/torrench#configuration-instructions) to enable TPB/KAT.
 
-_Torrench initially began as a python learning project for me. I am sure there are ways to implement code I wrote in a much better/efficient way. Do [let me know](https://github.com/kryptxy/torrench#contact) or [Open issue](https://github.com/kryptxy/torrench/issues/new) if you come across any. 
-Alternatively, you can also send a pull request._
-
-_I believe this project can go a long way. I'll need your help expanding it, and keeping it active. Suggestions/Feedbacks are highly appreciated. (I'll soon upload the contributions how-to)_
+_Torrench initially began as a python learning project for me. I am sure there are ways to implement code I wrote in a much better/efficient way. Do [let me know](https://github.com/kryptxy/torrench#contact) or [Open issue](https://github.com/kryptxy/torrench/issues/new) if you come across any. Alternatively, you can also send a pull request._
 
 ---
 
@@ -40,9 +40,9 @@ _I believe this project can go a long way. I'll need your help expanding it, and
 
 * Requires [Python3](https://www.python.org/downloads/)
 * Arch Users - Can install from [AUR](https://aur.archlinux.org/packages/torrench/)
-* Other distro users [Ubuntu,Fedora,Suse,etc...] can use pip (python3-pip)
+* Other distro users [Ubuntu,Fedora,Suse,etc...] can use pip (python3-pip) (install/upgrade)
 ```
-sudo python3 -m pip install torrench
+$ sudo python3 -m pip install torrench --upgrade
 ```
 * Alternatively, build from source (python-setuptools)
 ```bash
@@ -52,14 +52,14 @@ $ sudo python3 setup.py install
 ### Windows
 Windows does not require any additional packages. Everything required to run this software is provided in executable (Does not even require python pre-installed).
 
-* Download [torrench executable](https://github.com/kryptxy/torrench/releases/download/v1.0.3/torrench-1.0.3.exe)
+* Download latest [torrench executable](https://github.com/kryptxy/torrench/releases/download/v1.0.42/torrench-1.0.42.exe)
 * That's it. Run using cmd/powershell [```> torrench.exe <search>```]
 
 	* NOTE: 
-		* In windows, the default location for storing html files is ```C:\Users\<user>\.torrench\temp```
+		* In windows, the default location for storing [TPB] html files is ```C:\Users\<user>\.torrench\temp```
 
 ### Configuration instructions:
-1. Download [config.ini](https://ln.sync.com/dl/26cd652e0/nqzvd8b3-9gqs3pdu-32btqm2c-9r6mbymm) file (Hosted on sync)
+1. Download **config.ini** from [Sync](https://ln.sync.com/dl/26cd652e0/nqzvd8b3-9gqs3pdu-32btqm2c-9r6mbymm) / [TinyUpload](http://s000.tinyupload.com/index.php?file_id=14244138743753164476)
 	* **Windows -** Copy the config file in ```C:\Users\<user>\.config\torrench\``` (create any missing directories)
 	* **Linux -** Copy the config file to ```$HOME/.config/torrench/``` (Create any missing directories)
 2. Enable it
@@ -102,32 +102,31 @@ $ torrench [Options] <SEARCH_STRING>
 * Displays results in organized, tabular form.
 * [linuxtracker] Supports filtering search using categories
 
-### **[Common to both TPB/KAT]** 
-	* Surf torrents Ad-free
-	* Fetch Torrents on basis of pages [1 page = 30 results (max)] [(-p) argument].
-	* **Display colored results on basis of uploader's status** (Very useful when choosing torrent).
-		* TPB: 
-			* VIP Uploaders [text in green]
-			* Trusted Uploader [results in magenta]
-			* General Uploader 
-		* KAT (KickassTorrents):
-			* Verified uploaders [Uploader's text in yellow]
-			* Seeds [in green]
-			* Leeches [in red]
-	* Add torrent directly to torrent client through **magnetic links** without opening/fetching details.
-	
-### ThepirateBay Features
+### TPB/KAT only 
+* Surf torrents Ad-free
+* Fetch Torrents on basis of pages [1 page = 30 results (max)] [(-p) argument].
+* **Display colored results on basis of uploader's status** (Very useful when choosing torrent).
+	* TPB: 
+		* VIP Uploaders [text in green]
+		* Trusted Uploader [results in magenta]
+		* General Uploader 
+	* KAT (KickassTorrents):
+		* Verified uploaders [Uploader's text in yellow]
+		* Seeds [in green]
+		* Leeches [in red]
+* Add torrent directly to torrent client through **magnetic links** without opening/fetching details.
+* Get upstream link which can be opened using browser.
+
+**[TPB-Only]**
 * Get complete torrent details (Description, comments, torrent download). **Torrent details are available in dynamically-generated HTML pages.**
 
 * Fetch Comments on basis of pages [Useful when torrent has large number of comments, and not all comments are intended to be fetched].
-
-### KickassTorrents Features
-* Get upstream [KAT] link which can be opened using browser.
 
 ### Note
 * A torrent might take long to fetch results. I have generally faced this issue when running torrench for the first time. When this happens:
 	* Abort the ongoing search [Ctrl+C]
 	* Search again. The second time generally works fine.
+* KAT Proxy is quite shaky, and might not work at all times. I have been unable to find any reliable KAT proxy. If you know of some working proxy, you can edit KAT_URL in config.ini  with that working proxy and hope that works (If it does, let me know?). Alternatively, use TPB. It's pretty reliable and works most of the time.
 	
 ---
 
@@ -150,7 +149,7 @@ $ torrench -d "solus" ## Search distrowatch for solus ISO
 ![distrowatch](https://raw.githubusercontent.com/kryptxy/torrench/master/images/screenshots/distrowatch.gif)
 ---
 ### Searches considered illegal
-#### ThePirateBay (Examples)
+#### TPB Examples
 ```bash
 $ torrench -t "suicide squad"	## Search suicide squad TPB
 $ torrench -t "game of thrones s07e02" -p 2	## Search and fetch 2 pages TPB for GOT s07e02
@@ -163,7 +162,7 @@ _(Dynamically-generated Torrent description HTML page)_
 ![illegal](https://raw.githubusercontent.com/kryptxy/torrench/master/images/screenshots/got.gif)
 _(Click to expand)_
 
-#### KickAssTorrents (Examples)
+#### KAT Examples
 ```bash
 $ torrench -k "doctor strange"
 $ torrench -k "guardians of the galaxy"
